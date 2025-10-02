@@ -1,1 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eden Rose – Wedding Photographer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #111;
+      line-height: 1.6;
+    }
+    header {
+      background: url('hero.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    header .content {
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+    .tagline {
+      font-style: italic;
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    section {
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .about, .identity {
+      text-align: center;
+    }
+    .about p, .identity p {
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="content">
+      <h1>EDEN ROSE</h1>
+      <p class="tagline">Enchanting Frames – Endless Memories</p>
+    </div>
+  </header>
+
+  <section class="about">
+    <h2>À propos</h2>
+    <p>
+      Eden Rose est dédié à capturer la beauté, la joie et la romance de votre journée spéciale.
+      De vos fiançailles à votre mariage, chaque moment est immortalisé avec élégance et émotion.
+    </p>
+  </section>
+
+  <section class="identity">
+    <h2>Identité</h2>
+    <p>
+      Une esthétique élégante, intemporelle et romantique. Chaque photo est soigneusement composée
+      pour raconter votre histoire avec raffinement et authenticité.
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 Eden Rose Wedding Photography</p>
+    <p>Design par Yuliia Hrabynska – 
+      <a href="https://instagram.com/juldesignco" target="_blank">@juldesignco</a>
+    </p>
+  </footer>
+</body>
+</html>
