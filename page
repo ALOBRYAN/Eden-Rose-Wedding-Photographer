@@ -14,7 +14,7 @@
       line-height: 1.6;
     }
     header {
-      background: url('hero.jpg') center/cover no-repeat;
+      background: url('Frame 1.png') center/cover no-repeat;
       height: 100vh;
       display: flex;
       align-items: center;
