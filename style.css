@@ -1,4 +1,4 @@
-/* Reset */
+/* RESET */
 *{ box-sizing:border-box }
 html,body{ margin:0; padding:0 }
 body{ background:#000; font-family:'Montserrat', sans-serif; color:white }
@@ -18,60 +18,52 @@ body{ background:#000; font-family:'Montserrat', sans-serif; color:white }
   object-fit:cover;
   filter:grayscale(100%);
 }
-.hero > *:not(.bg){ position:absolute; z-index:2 }
-
-/* Texte haut gauche */
-.top-left{
-  top:15px;
-  left:20px;
-  font-size:15px;
-  letter-spacing:2px;
-  font-weight:600;
-  text-transform:uppercase;
-  white-space:nowrap;
+.hero > *:not(.bg){
+  position:absolute;
+  z-index:2;
 }
 
-/* Logo FR */
+/* FR logo */
 .fr{
   top:20px;
   left:50%;
   transform:translateX(-50%);
   width:52px;
   height:52px;
-  border-radius:50%;
   background:white;
   color:black;
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   font-family:'Playfair Display', serif;
-  font-weight:700;
   font-size:18px;
+  font-weight:700;
 }
 
-/* Texte centré sous FR */
+/* ✅ texte centré sous FR */
 .top-center{
   top:90px;
   left:50%;
   transform:translateX(-50%);
-  font-size:16px;
-  letter-spacing:3px;
-  text-transform:uppercase;
+  font-size:15px;
   font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
 /* Titre principal */
 .title{
   top:50%;
   left:50%;
-  transform:translate(-50%, -50%);
+  transform:translate(-50%,-50%);
   font-family:'Playfair Display', serif;
   font-size:80px;
   letter-spacing:8px;
   margin:0;
 }
 
-/* Bas centré */
+/* Ligne du bas */
 .bottom-center{
   bottom:35px;
   left:50%;
@@ -99,19 +91,17 @@ body{ background:#000; font-family:'Montserrat', sans-serif; color:white }
   font-size:16px;
   line-height:1.8;
   max-width:900px;
-  text-align:justify;
 }
 
 /* ===== PARTIE 3 ===== */
-.brand-section{
-  display:flex;
-  justify-content:center;
-}
-.brand-full{
+.full-image img{
   width:100%;
-  max-width:1600px;
+  height:100vh;      /* ✅ GRAND COMME LA PREMIERE IMAGE */
+  object-fit:cover;
   display:block;
 }
+
+
 
 
 
