@@ -1,74 +1,95 @@
-body{
-  margin:0;
-  background:#000;
-  font-family:"Montserrat", sans-serif;
-}
+/* base simple */
+*{ box-sizing: border-box; }
+html,body{ margin:0; padding:0; }
+body{ background:#000; color:#fff; font-family:'Montserrat', Arial, sans-serif; }
 
+/* conteneur du visuel */
 .hero{
-  position:relative;
-  width:100%;
-  max-width:1200px;
-  margin:auto;
+  position: relative;
+  width: min(100vw, 1200px);  /* limite large simple */
+  margin: 0 auto;
 }
 
+/* l'image fond s'affiche, pas de zoom bizarre */
 .fond{
-  width:100%;
   display:block;
-}
-
-/* FR en haut */
-.fr-logo{
-  position:absolute;
-  top:20px;
-  left:50%;
-  transform:translateX(-50%);
-  background:white;
-  color:black;
-  font-weight:bold;
-  font-family:"Playfair Display", serif;
-  border-radius:50%;
-  width:60px;
-  height:60px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:20px;
-}
-
-/* Titre principal */
-.main-title{
-  position:absolute;
-  top:40%;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:70px;
-  font-weight:600;
-  color:white;
-  letter-spacing:10px;
-  font-family:"Playfair Display", serif;
-}
-
-/* Texte du bas */
-.bottom-text{
-  position:absolute;
-  bottom:50px;
   width:100%;
-  text-align:center;
-  color:white;
-  font-weight:600;
-  letter-spacing:3px;
+  height:auto;
+  filter: grayscale(100%);
 }
 
-.line1{
-  display:flex;
-  justify-content:space-between;
-  padding:0 80px;
-  text-transform:uppercase;
+/* tous les textes POSÉS SUR l'image (positions en %) */
+.hero > .fr-logo,
+.hero > .main-title,
+.hero > .bottom-left,
+.hero > .bottom-right,
+.hero > .bottom-center{
+  position: absolute;
+  text-shadow: 0 2px 8px rgba(0,0,0,.45);
+  pointer-events: none; /* on ne clique pas ces textes par erreur */
 }
 
-.line2{
-  margin-top:10px;
-  font-style:italic;
+/* FR en haut (cercle blanc, texte noir) */
+.fr-logo{
+  top: 3.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  display:flex; align-items:center; justify-content:center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 18px;
 }
+
+/* Titre au milieu */
+.main-title{
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  letter-spacing: .12em;
+  font-size: clamp(36px, 9vw, 120px);
+  line-height: 1;
+  text-align: center;
+}
+
+/* Bas : gauche / droite / centre (sur l'image) */
+.bottom-left{
+  bottom: 12%;
+  left: 8%;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: clamp(10px, 1.8vw, 18px);
+}
+
+.bottom-right{
+  bottom: 12%;
+  right: 8%;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: clamp(10px, 1.8vw, 18px);
+  text-align: right;
+}
+
+.bottom-center{
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: clamp(10px, 1.8vw, 18px);
+  text-align: center;
+}
+
+
 
 
