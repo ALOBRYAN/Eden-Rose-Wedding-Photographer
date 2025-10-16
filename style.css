@@ -10,60 +10,60 @@ body{ background:#000; font-family:'Montserrat', sans-serif; color:white }
   height:100vh;
   overflow:hidden;
 }
-.bg{
-  position:absolute;
-  inset:0;
+.hero .bg{
   width:100%;
   height:100%;
   object-fit:cover;
   filter:grayscale(100%);
+  position:absolute;
+  inset:0;
 }
 .hero > *:not(.bg){
   position:absolute;
   z-index:2;
 }
 
-/* FR logo */
+/* Logo FR */
 .fr{
   top:20px;
   left:50%;
   transform:translateX(-50%);
-  width:52px;
-  height:52px;
+  width:50px;
+  height:50px;
   background:white;
   color:black;
-  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
+  border-radius:50%;
   font-family:'Playfair Display', serif;
-  font-size:18px;
   font-weight:700;
+  font-size:18px;
 }
 
-/* ✅ texte centré sous FR */
+/* Texte sous FR */
 .top-center{
   top:90px;
   left:50%;
   transform:translateX(-50%);
   font-size:15px;
-  font-weight:600;
-  letter-spacing:2px;
   text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:600;
 }
 
-/* Titre principal */
+/* Titre central */
 .title{
   top:50%;
   left:50%;
-  transform:translate(-50%,-50%);
+  transform:translate(-50%, -50%);
   font-family:'Playfair Display', serif;
   font-size:80px;
-  letter-spacing:8px;
   margin:0;
+  letter-spacing:8px;
 }
 
-/* Ligne du bas */
+/* Bas */
 .bottom-center{
   bottom:35px;
   left:50%;
@@ -78,29 +78,34 @@ body{ background:#000; font-family:'Montserrat', sans-serif; color:white }
   background:white;
   color:black;
   max-width:1600px;
-  height:535px;
   margin:0 auto;
-  padding:60px 200px;
+  padding:80px 200px;
+  text-align:left;
 }
 .about h2{
   font-family:'Playfair Display', serif;
+  margin-top:0;
   font-size:30px;
   margin-bottom:20px;
 }
 .about p{
-  font-size:16px;
+  max-width:850px;
+  font-size:15px;
   line-height:1.8;
-  max-width:900px;
 }
 
-/* ===== PARTIE 3 ===== */
-.full-image img{
+/* ===== PARTIE 3 IMAGE FULL ===== */
+.big-section{
   width:100%;
-  height:100vh;      /* ✅ GRAND COMME LA PREMIERE IMAGE */
-  object-fit:cover;
+  height:100vh; /* ✅ même hauteur que le premier fond */
+  overflow:hidden;
+}
+.big-section img{
+  width:100%;
+  height:100%;
+  object-fit:cover; /* ✅ grand plein écran */
   display:block;
 }
-
 
 
 
