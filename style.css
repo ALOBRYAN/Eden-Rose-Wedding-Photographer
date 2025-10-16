@@ -7,54 +7,77 @@ body{
   background:#000;
 }
 
-/* HERO */
+/* Section hero */
 .hero{
   position:relative;
-  min-height:100vh;
+  min-height:100vh;                 /* plein écran */
   display:flex; align-items:center; justify-content:center;
   text-align:center;
-
-  /* ✅ ici on utilise ton image fond.png */
-  background: url('fond.png') center/cover no-repeat;
+  overflow:hidden;
 }
 
+/* Image de fond (méthode sûre) */
+.bg{
+  position:absolute; inset:0;       /* occupe tout le header */
+  width:100%; height:100%;
+  object-fit:cover;                 /* couvre sans déformer */
+  z-index:0;
+  filter: grayscale(100%);          /* comme ta maquette */
+}
+
+/* léger voile pour lisibilité du texte */
 .hero::before{
   content:""; position:absolute; inset:0;
   background:rgba(0,0,0,.28);
+  z-index:0.5;
 }
-.hero > *{ position:absolute; z-index:1 }
 
-/* Mini logo FR */
+/* Tout le texte au-dessus de l’image */
+.hero > *:not(.bg){ position:absolute; z-index:1 }
+
+/* Mini logo FR en haut */
 .mini-logo{
   top:18px; left:50%; transform:translateX(-50%);
-  width:54px; height:54px; background:#fff; color:#000; border-radius:50%;
+  width:54px; height:54px;
+  background:#fff; color:#000;
+  border-radius:50%;
   display:flex; align-items:center; justify-content:center;
-  font-family:'Playfair Display', serif; font-weight:600; font-size:18px;
+  font-family:'Playfair Display', serif;
+  font-weight:600; font-size:18px; letter-spacing:1px;
 }
 
-/* Gros titre */
+/* Gros titre au milieu */
 .brand{
   margin:0;
   font-family:'Playfair Display', serif;
-  font-weight:400; letter-spacing:.12em;
+  font-weight:400;
+  letter-spacing:.12em;
   font-size:clamp(36px, 9vw, 120px);
+  line-height:1;
   text-shadow:0 2px 8px rgba(0,0,0,.35);
 }
 
-/* Lignes du bas */
+/* 1ère ligne en bas (gauche / droite) */
 .bottom-toprow{
   bottom:96px; left:50%; transform:translateX(-50%);
   width:min(90%,1100px);
   display:flex; justify-content:space-between; gap:16px;
-  font-weight:600; letter-spacing:.18em; text-transform:uppercase;
-  font-size:clamp(10px,1.8vw,18px); text-shadow:0 1px 6px rgba(0,0,0,.4);
+  font-weight:600; letter-spacing:.18em;
+  font-size:clamp(10px,1.8vw,18px);
+  text-transform:uppercase;
+  text-shadow:0 1px 6px rgba(0,0,0,.4);
 }
+
+/* 2e ligne en bas (avec tiret) */
 .bottom-lastrow{
   bottom:48px; left:50%; transform:translateX(-50%);
   width:min(90%,900px);
   display:flex; justify-content:center; align-items:center; gap:18px;
-  font-weight:600; letter-spacing:.18em; text-transform:uppercase;
-  font-size:clamp(10px,1.8vw,18px); text-shadow:0 1px 6px rgba(0,0,0,.4);
+  font-weight:600; letter-spacing:.18em;
+  font-size:clamp(10px,1.8vw,18px);
+  text-transform:uppercase;
+  text-shadow:0 1px 6px rgba(0,0,0,.4);
 }
 .bottom-lastrow .dash{ opacity:.9 }
+
 
