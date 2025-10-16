@@ -1,7 +1,9 @@
-*{ box-sizing:border-box; }
-html,body{ margin:0; padding:0; }
-body{ background:#000; font-family:'Montserrat', sans-serif; color:white; }
+/* RESET DE BASE */
+*{ box-sizing:border-box }
+html,body{ margin:0; padding:0 }
+body{ background:#000; font-family:'Montserrat', sans-serif; color:white }
 
+/* ===== HERO (image + texte) ===== */
 .hero{
   position:relative;
   width:100%;
@@ -14,29 +16,41 @@ body{ background:#000; font-family:'Montserrat', sans-serif; color:white; }
   object-fit:cover;
   filter:grayscale(100%);
 }
-.hero > *:not(.bg){
+
+/* Texte du haut gauche */
+.top-left-text{
   position:absolute;
-  z-index:2;
+  top:15px;
+  left:20px;
+  color:white;
+  font-size:15px;
+  letter-spacing:2px;
+  font-weight:500;
+  text-transform:uppercase;
 }
 
+/* Logo FR */
 .fr{
+  position:absolute;
   top:20px;
   left:50%;
   transform:translateX(-50%);
-  width:60px;
-  height:60px;
   background:white;
   color:black;
+  width:50px;
+  height:50px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   font-family:'Playfair Display', serif;
-  font-size:20px;
   font-weight:600;
+  font-size:18px;
 }
 
+/* Titre principal */
 .title{
+  position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%, -50%);
@@ -46,27 +60,18 @@ body{ background:#000; font-family:'Montserrat', sans-serif; color:white; }
   margin:0;
 }
 
-.bottom-row{
-  bottom:90px;
-  left:50%;
-  transform:translateX(-50%);
-  width:80%;
-  display:flex;
-  justify-content:space-between;
-  font-size:16px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-}
+/* Bas centré */
 .bottom-center{
-  bottom:50px;
+  position:absolute;
+  bottom:40px;
   left:50%;
   transform:translateX(-50%);
-  text-align:center;
   font-size:16px;
   letter-spacing:4px;
   text-transform:uppercase;
 }
 
+/* ===== SECTION ABOUT ===== */
 .about{
   background:white;
   color:black;
@@ -77,15 +82,16 @@ body{ background:#000; font-family:'Montserrat', sans-serif; color:white; }
 }
 .about h2{
   font-family:'Playfair Display', serif;
-  font-size:28px;
+  font-size:30px;
   margin-bottom:20px;
 }
 .about p{
-  font-size:15px;
+  font-size:16px;
   line-height:1.8;
-  text-align:justify;
   max-width:900px;
+  text-align:justify;
 }
+
 
 
 
