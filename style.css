@@ -1,170 +1,131 @@
-
-:root{
-  --maxw: 1200px;
-  --fg: #fff;
-  --shadow: rgba(0,0,0,.45);
-}
-
-*{ box-sizing: border-box; }
+/* ===== base ===== */
+* { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-body{
-  background: #0f0f0f;
-  color: var(--fg);
+body {
   font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  line-height: 1.6;
+  background: #0c0c0c;  /* pour mieux voir les bords si besoin */
+  color: #fff;
 }
 
-
-.section{
-  width: 100%;
-  display: grid;
-  place-items: center;
-  padding: 0;
+/* ===== règle clé : images à TAILLE RÉELLE (aucun zoom) ===== */
+img {
+  display: block;
+  max-width: none;   /* ne JAMAIS réduire/agrandir automatiquement */
+  height: auto;      /* respecte le ratio */
+  image-rendering: auto;
 }
 
-
-.strip{
+/* ===== bande (strip) =====
+   - on centre horizontalement
+   - pas de redimensionnement : les images gardent leur taille pixel
+   - si c’est plus large que l’écran, on permet le scroll horizontal local
+*/
+.strip {
   position: relative;
-  width: min(100%, var(--maxw));
-  aspect-ratio: 16/9;
-  max-height: 100vh;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.06);
+  margin: 0 auto;
+  padding: 0;
+  overflow: visible;
 }
 
-
-.panel{
-  position: absolute; inset: 0;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  filter: grayscale(100%);
+/* conteneur des 3 images : côte à côte à leur largeur native */
+.strip .images {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;                    /* collage parfait */
+  width: max-content;        /* s’étend à la somme des largeurs réelles */
+  margin: 0 auto;            /* centré dans la page */
 }
 
+/* si l’écran est plus petit → pas de zoom, juste scroll horizontal local au strip */
+.strip {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
 
-.p-left   { background-image: url('Parti en haut à gauche.png'); }
-.p-center { background-image: url('en haut millieu.png'); }
-.p-right  { background-image: url('en haut à droite.png'); }
-
-
-.p-left   { clip-path: polygon(0 0, 34% 0, 34% 100%, 0 100%); }
-.p-center { clip-path: polygon(33% 0, 67% 0, 67% 100%, 33% 100%); }
-.p-right  { clip-path: polygon(66% 0, 100% 0, 100% 100%, 66% 100%); }
-
-
-.overlay{
-  position: absolute; inset: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,.25));
+/* ===== calque de texte pour le HERO ===== */
+.strip-top {
+  /* ajoute un léger dégradé par-dessus, sans toucher aux images */
+  isolation: isolate; /* pour gérer z-index proprement */
+}
+.strip-top .overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   pointer-events: none;
 }
 
-
-.brand{
+/* textes du hero */
+.brand {
   position: absolute; inset: 0;
   margin: 0;
   display: grid; place-items: center;
   font-family: 'Playfair Display', serif;
   font-weight: 400;
-  letter-spacing: .11em;
-  font-size: clamp(2.4rem, 8vw, 7.4rem);
-  color: var(--fg);
-  text-align: center;
+  letter-spacing: .12em;
+  /* taille non responsive pour rester fidèle (zéro zoom) */
+  font-size: 120px;           /* ajuste si nécessaire à TA découpe */
   line-height: 1;
-  text-shadow: 0 2px 8px var(--shadow);
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0,0,0,.42);
 }
 
-.txt{
+.txt {
   position: absolute;
   font-weight: 600;
   letter-spacing: .18em;
-  font-size: clamp(.62rem, 1.7vw, .95rem);
+  font-size: 18px;            /* fixe = pas de zoom */
   text-transform: uppercase;
-  color: var(--fg);
-  text-shadow: 0 1px 6px var(--shadow);
+  text-shadow: 0 1px 6px rgba(0,0,0,.42);
   white-space: nowrap;
 }
 
-.t-left-top{
-  top: 23%; left: 30%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.t-right-top{
-  top: 23%; left: 66%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.t-left-bottom{
-  bottom: 18%; left: 40%;
-  transform: translate(-50%, 50%);
-}
-.t-right-bottom{
-  bottom: 18%; left: 62%;
-  transform: translate(-50%, 50%);
-}
+/* positions (à affiner selon TES dimensions découpées) */
+.t-left-top    { top: 130px; left: 420px;  text-align: center; }
+.t-right-top   { top: 130px; left: 940px;  text-align: center; }
+.t-left-bottom { bottom: 120px; left: 520px; }
+.t-right-bottom{ bottom: 120px; left: 820px; }
 
-
-.divider{
+/* petit trait central */
+.divider {
   position: absolute;
-  bottom: 18%;
-  left: 50%;
-  width: clamp(50px, 8vw, 120px);
-  height: 2px;
+  bottom: 120px;
+  left: 670px;
+  width: 120px; height: 2px;
   background: #fff;
-  transform: translate(-50%, 50%);
   opacity: .9;
 }
 
-
+/* monogramme ovale FR (position fixe, pas responsive) */
 .monogram{
   position: absolute;
-  top: 38%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(58px, 7vw, 120px);
-  height: clamp(92px, 11vw, 185px);
-  border: 2px solid rgba(255,255,255,.92);
-  border-radius: 999px;
+  top: 260px; left: 680px;
+  width: 110px; height: 180px;
+  border: 2px solid rgba(255,255,255,.9);
+  border-radius: 120px;
   display: grid; place-items: center;
   pointer-events: none;
 }
-.monogram .f,
-.monogram .r{
+.monogram .f, .monogram .r{
   position: absolute;
   font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 4.6vw, 96px);
+  font-size: 96px;
   font-weight: 400;
   line-height: .8;
-  color: var(--fg);
-  text-shadow: 0 2px 8px var(--shadow);
+  text-shadow: 0 2px 8px rgba(0,0,0,.42);
 }
-.monogram .f { transform: translateX(-10%); }
-.monogram .r { transform: translateX(18%); }
+.monogram .f{ left: 44%; transform: translateX(-50%); }
+.monogram .r{ left: 58%; transform: translateX(-50%); }
 
-
-.middle .single-frame{
-  width: min(100%, var(--maxw));
-  aspect-ratio: 16/9;
-  max-height: 100vh;
-  background: url('millieu.png') center/cover no-repeat;
-  filter: grayscale(100%);
-  border: 1px solid rgba(255,255,255,.06);
+/* ===== bloc milieu (image taille réelle) ===== */
+.mid {
+  display: grid;
+  place-items: center;
+  margin: 80px 0;
+  overflow-x: auto;           /* pas de zoom si plus large que l’écran */
 }
-
-
-.strip-bottom .panel{ filter: grayscale(100%); }
-
-.b-left   { background-image: url('en bas à gauche.png'); }
-.b-center { background-image: url('en bas millieu.png'); }
-.b-right  { background-image: url('en bas à droite.png'); }
-
-.b-left   { clip-path: polygon(0 0, 34% 0, 34% 100%, 0 100%); }
-.b-center { clip-path: polygon(33% 0, 67% 0, 67% 100%, 33% 100%); }
-.b-right  { clip-path: polygon(66% 0, 100% 0, 100% 100%, 66% 100%); }
-
-
-@media (max-width: 640px){
-  :root{ --maxw: 100%; }
-  .txt{ letter-spacing: .14em; }
+.mid img {
+  margin: 0 auto;
 }
 
 
