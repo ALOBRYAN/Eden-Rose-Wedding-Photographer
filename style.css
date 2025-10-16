@@ -1,4 +1,4 @@
-/* ===== Reset ===== */
+/* RESET */
 *{ box-sizing:border-box }
 html,body{ margin:0; padding:0 }
 body{ background:#000; font-family:'Montserrat', sans-serif; color:#fff }
@@ -13,12 +13,10 @@ body{ background:#000; font-family:'Montserrat', sans-serif; color:#fff }
 .hero .bg{
   position:absolute; inset:0;
   width:100%; height:100%;
-  object-fit:cover;
-  filter:grayscale(100%);
+  object-fit:cover; filter:grayscale(100%);
 }
 .hero > *:not(.bg){ position:absolute; z-index:2 }
 
-/* FR en haut-centre */
 .fr{
   top:20px; left:50%; transform:translateX(-50%);
   width:52px; height:52px; border-radius:50%;
@@ -26,57 +24,58 @@ body{ background:#000; font-family:'Montserrat', sans-serif; color:#fff }
   display:flex; align-items:center; justify-content:center;
   font-family:'Playfair Display', serif; font-weight:700; font-size:18px;
 }
-
-/* Texte centré sous FR */
 .top-center{
   top:90px; left:50%; transform:translateX(-50%);
   font-size:15px; letter-spacing:2px; font-weight:600; text-transform:uppercase;
 }
-
-/* Titre central */
 .title{
   top:50%; left:50%; transform:translate(-50%,-50%);
   margin:0; font-family:'Playfair Display', serif;
   font-size:80px; letter-spacing:8px; text-align:center;
 }
-
-/* Ligne du bas */
 .bottom-center{
   bottom:35px; left:50%; transform:translateX(-50%);
   font-size:16px; letter-spacing:4px; text-transform:uppercase;
 }
 
-/* ===== Sections texte (Parties 2 et 4) ===== */
-.info-section{
-  background:#ffffff;      /* fond blanc */
-  color:#000000;
-  width:1600px;            /* EXACTEMENT 1600px */
-  height:562px;            /* EXACTEMENT 562px */
-  margin:0 auto;
-  padding:60px 200px;
-  box-sizing:border-box;   /* évite que le padding dépasse */
-  display:flex;
-  flex-direction:column;
-  justify-content:center;  /* centre vertical */
+/* ===== WRAPPER BLANC PLEINE LARGEUR ===== */
+.section-white{
+  width:100vw;           /* bande blanche sur toute la largeur de la page */
+  background:#fff;
+  color:#000;
 }
 
-.info-section h2{
-  font-family:'Playfair Display', serif;
-  font-size:30px; margin:0 0 20px 0;
+/* Conteneur centré 1600px de large et 562px de haut */
+.content-1600{
+  width:1600px;
+  margin:0 auto;
+  padding:60px 200px;    /* inclus dans la hauteur grâce à box-sizing */
+  box-sizing:border-box;
 }
-.info-section p{
-  max-width:900px; margin:0;
+.h562{
+  height:562px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+
+.content-1600 h2{
+  font-family:'Playfair Display', serif;
+  font-size:30px; margin:0 0 18px 0;
+}
+.content-1600 p{
+  margin:0; max-width:900px;
   font-size:16px; line-height:1.8; text-align:justify;
 }
 
-/* ===== Partie 3 : image plein écran et pleine largeur ===== */
+/* ===== PARTIE 3 : IMAGE PLEIN ÉCRAN ===== */
 .big-section{
-  width:100vw; height:100vh; overflow:hidden; margin:0; padding:0;
+  width:100vw; height:100vh; overflow:hidden;
 }
 .big-section img{
   width:100vw; height:100%;
   object-fit:cover; display:block;
 }
+
+
 
 
 
