@@ -1,11 +1,169 @@
-.layout {
-  width: 100%;
-
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap-reverse;
-
-  justify-content: space-around;
+/* ========= Base ========= */
+:root{
+  --maxw: 1200px;
+  --fg: #fff;
+  --shadow: rgba(0,0,0,.45);
 }
 
+*{ box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body{
+  background: #0f0f0f;
+  color: var(--fg);
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* sections empilées (scroll vertical) */
+.section{
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+/* ========= Bande (strip) qui assemble 3 images ========= */
+.strip{
+  position: relative;
+  width: min(100%, var(--maxw));
+  aspect-ratio: 16/9;
+  max-height: 100vh;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+/* panneaux */
+.panel{
+  position: absolute; inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: grayscale(100%);
+}
+
+/* ======= HAUT : 3 images ======= */
+.p-left   { background-image: url('Parti en haut à gauche.png'); }
+.p-center { background-image: url('en haut millieu.png'); }
+.p-right  { background-image: url('en haut à droite.png'); }
+
+/* on découpe la bande en 3 colonnes via clip-path */
+.p-left   { clip-path: polygon(0 0, 34% 0, 34% 100%, 0 100%); }
+.p-center { clip-path: polygon(33% 0, 67% 0, 67% 100%, 33% 100%); }
+.p-right  { clip-path: polygon(66% 0, 100% 0, 100% 100%, 66% 100%); }
+
+/* voile léger pour match le contraste de la maquette */
+.overlay{
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,.25));
+  pointer-events: none;
+}
+
+/* ======= Textes superposés du HERO ======= */
+.brand{
+  position: absolute; inset: 0;
+  margin: 0;
+  display: grid; place-items: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: .11em;
+  font-size: clamp(2.4rem, 8vw, 7.4rem);
+  color: var(--fg);
+  text-align: center;
+  line-height: 1;
+  text-shadow: 0 2px 8px var(--shadow);
+}
+
+.txt{
+  position: absolute;
+  font-weight: 600;
+  letter-spacing: .18em;
+  font-size: clamp(.62rem, 1.7vw, .95rem);
+  text-transform: uppercase;
+  color: var(--fg);
+  text-shadow: 0 1px 6px var(--shadow);
+  white-space: nowrap;
+}
+
+.t-left-top{
+  top: 23%; left: 30%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.t-right-top{
+  top: 23%; left: 66%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.t-left-bottom{
+  bottom: 18%; left: 40%;
+  transform: translate(-50%, 50%);
+}
+.t-right-bottom{
+  bottom: 18%; left: 62%;
+  transform: translate(-50%, 50%);
+}
+
+/* petit trait séparateur */
+.divider{
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  width: clamp(50px, 8vw, 120px);
+  height: 2px;
+  background: #fff;
+  transform: translate(-50%, 50%);
+  opacity: .9;
+}
+
+/* Monogramme FR dans un ovale */
+.monogram{
+  position: absolute;
+  top: 38%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(58px, 7vw, 120px);
+  height: clamp(92px, 11vw, 185px);
+  border: 2px solid rgba(255,255,255,.92);
+  border-radius: 999px;
+  display: grid; place-items: center;
+  pointer-events: none;
+}
+.monogram .f,
+.monogram .r{
+  position: absolute;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4.6vw, 96px);
+  font-weight: 400;
+  line-height: .8;
+  color: var(--fg);
+  text-shadow: 0 2px 8px var(--shadow);
+}
+.monogram .f { transform: translateX(-10%); }
+.monogram .r { transform: translateX(18%); }
+
+/* ========= BLOC MILIEU (image pleine) ========= */
+.middle .single-frame{
+  width: min(100%, var(--maxw));
+  aspect-ratio: 16/9;
+  max-height: 100vh;
+  background: url('millieu.png') center/cover no-repeat;
+  filter: grayscale(100%);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+/* ========= BLOC BAS : 3 images ========= */
+.strip-bottom .panel{ filter: grayscale(100%); }
+
+.b-left   { background-image: url('en bas à gauche.png'); }
+.b-center { background-image: url('en bas millieu.png'); }
+.b-right  { background-image: url('en bas à droite.png'); }
+
+.b-left   { clip-path: polygon(0 0, 34% 0, 34% 100%, 0 100%); }
+.b-center { clip-path: polygon(33% 0, 67% 0, 67% 100%, 33% 100%); }
+.b-right  { clip-path: polygon(66% 0, 100% 0, 100% 100%, 66% 100%); }
+
+/* ========= Responsive fin ========= */
+@media (max-width: 640px){
+  :root{ --maxw: 100%; }
+  .txt{ letter-spacing: .14em; }
+}
 
