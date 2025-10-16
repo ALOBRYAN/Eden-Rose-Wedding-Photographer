@@ -48,7 +48,7 @@ body { font-family: Arial, Helvetica, sans-serif; background: #000; color: #fff;
   white-space: nowrap;
 }
 
-/* ===== bande blanche pleine largeur (parties 2 et 4) ===== */
+/* ===== bandes blanches pleine largeur (parties 2, 4, 6) ===== */
 .section-white {
   width: 100vw;          /* pleine largeur page */
   background: #fff;
@@ -95,13 +95,9 @@ body { font-family: Arial, Helvetica, sans-serif; background: #000; color: #fff;
   .title { font-size: 10vw; }
   .top-center, .bottom-center { font-size: 12px; letter-spacing: 1.5px; }
   .content-1600 { width: 100vw; padding: 32px 20px; }
-  .h562 { height: auto; padding: 28px 0; }
+  .h562 { height: auto; padding: 24px 0; }
   .image-section img { width: 95vw; height: auto; }
 }
-
-
-
-
 
 
 
