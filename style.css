@@ -1,16 +1,13 @@
-/* base simple */
 *{ box-sizing: border-box; }
 html,body{ margin:0; padding:0; }
 body{ background:#000; color:#fff; font-family:'Montserrat', Arial, sans-serif; }
 
-/* conteneur du visuel */
 .hero{
   position: relative;
-  width: min(100vw, 1200px);  /* limite large simple */
+  width: min(100vw, 1200px); 
   margin: 0 auto;
 }
 
-/* l'image fond s'affiche, pas de zoom bizarre */
 .fond{
   display:block;
   width:100%;
@@ -18,7 +15,6 @@ body{ background:#000; color:#fff; font-family:'Montserrat', Arial, sans-serif; 
   filter: grayscale(100%);
 }
 
-/* tous les textes POSÉS SUR l'image (positions en %) */
 .hero > .fr-logo,
 .hero > .main-title,
 .hero > .bottom-left,
@@ -26,10 +22,9 @@ body{ background:#000; color:#fff; font-family:'Montserrat', Arial, sans-serif; 
 .hero > .bottom-center{
   position: absolute;
   text-shadow: 0 2px 8px rgba(0,0,0,.45);
-  pointer-events: none; /* on ne clique pas ces textes par erreur */
+  pointer-events: none; 
 }
 
-/* FR en haut (cercle blanc, texte noir) */
 .fr-logo{
   top: 3.5%;
   left: 50%;
@@ -45,7 +40,6 @@ body{ background:#000; color:#fff; font-family:'Montserrat', Arial, sans-serif; 
   font-size: 18px;
 }
 
-/* Titre au milieu */
 .main-title{
   top: 45%;
   left: 50%;
@@ -59,7 +53,6 @@ body{ background:#000; color:#fff; font-family:'Montserrat', Arial, sans-serif; 
   text-align: center;
 }
 
-/* Bas : gauche / droite / centre (sur l'image) */
 .bottom-left{
   bottom: 12%;
   left: 8%;
@@ -89,6 +82,7 @@ body{ background:#000; color:#fff; font-family:'Montserrat', Arial, sans-serif; 
   font-size: clamp(10px, 1.8vw, 18px);
   text-align: center;
 }
+
 
 
 
