@@ -1,4 +1,4 @@
-/* ========= Base ========= */
+
 :root{
   --maxw: 1200px;
   --fg: #fff;
@@ -14,7 +14,7 @@ body{
   line-height: 1.6;
 }
 
-/* sections empilées (scroll vertical) */
+
 .section{
   width: 100%;
   display: grid;
@@ -22,7 +22,7 @@ body{
   padding: 0;
 }
 
-/* ========= Bande (strip) qui assemble 3 images ========= */
+
 .strip{
   position: relative;
   width: min(100%, var(--maxw));
@@ -32,7 +32,7 @@ body{
   border: 1px solid rgba(255,255,255,.06);
 }
 
-/* panneaux */
+
 .panel{
   position: absolute; inset: 0;
   background-position: center;
@@ -41,24 +41,24 @@ body{
   filter: grayscale(100%);
 }
 
-/* ======= HAUT : 3 images ======= */
+
 .p-left   { background-image: url('Parti en haut à gauche.png'); }
 .p-center { background-image: url('en haut millieu.png'); }
 .p-right  { background-image: url('en haut à droite.png'); }
 
-/* on découpe la bande en 3 colonnes via clip-path */
+
 .p-left   { clip-path: polygon(0 0, 34% 0, 34% 100%, 0 100%); }
 .p-center { clip-path: polygon(33% 0, 67% 0, 67% 100%, 33% 100%); }
 .p-right  { clip-path: polygon(66% 0, 100% 0, 100% 100%, 66% 100%); }
 
-/* voile léger pour match le contraste de la maquette */
+
 .overlay{
   position: absolute; inset: 0;
   background: linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,.25));
   pointer-events: none;
 }
 
-/* ======= Textes superposés du HERO ======= */
+
 .brand{
   position: absolute; inset: 0;
   margin: 0;
@@ -103,7 +103,7 @@ body{
   transform: translate(-50%, 50%);
 }
 
-/* petit trait séparateur */
+
 .divider{
   position: absolute;
   bottom: 18%;
@@ -115,7 +115,7 @@ body{
   opacity: .9;
 }
 
-/* Monogramme FR dans un ovale */
+
 .monogram{
   position: absolute;
   top: 38%; left: 50%;
@@ -140,7 +140,7 @@ body{
 .monogram .f { transform: translateX(-10%); }
 .monogram .r { transform: translateX(18%); }
 
-/* ========= BLOC MILIEU (image pleine) ========= */
+
 .middle .single-frame{
   width: min(100%, var(--maxw));
   aspect-ratio: 16/9;
@@ -150,7 +150,7 @@ body{
   border: 1px solid rgba(255,255,255,.06);
 }
 
-/* ========= BLOC BAS : 3 images ========= */
+
 .strip-bottom .panel{ filter: grayscale(100%); }
 
 .b-left   { background-image: url('en bas à gauche.png'); }
@@ -161,9 +161,10 @@ body{
 .b-center { clip-path: polygon(33% 0, 67% 0, 67% 100%, 33% 100%); }
 .b-right  { clip-path: polygon(66% 0, 100% 0, 100% 100%, 66% 100%); }
 
-/* ========= Responsive fin ========= */
+
 @media (max-width: 640px){
   :root{ --maxw: 100%; }
   .txt{ letter-spacing: .14em; }
 }
+
 
