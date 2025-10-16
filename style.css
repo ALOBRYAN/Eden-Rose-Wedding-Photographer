@@ -1,93 +1,60 @@
-/* ========= Base ========= */
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-body {
-  font-family: 'Montserrat', Arial, sans-serif;      /* texte */
-  color: #fff;                                       /* texte blanc par défaut */
-  background: #000;
+/* Base */
+*{ box-sizing:border-box }
+html,body{ margin:0; padding:0 }
+body{
+  font-family:'Montserrat', Arial, sans-serif;
+  color:#fff;
+  background:#000;
 }
 
-/* ========= HERO ========= */
-.hero {
-  position: relative;
-  min-height: 100vh;                                 /* plein écran */
-  display: flex;
-  align-items: center;                               
-  justify-content: center;
-  text-align: center;
-  /* Mets ici le nom exact de ton image de fond */
-  background: url('fond.jpg') center/cover no-repeat;
+/* HERO */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+
+  /* ✅ ici on utilise ton image fond.png */
+  background: url('fond.png') center/cover no-repeat;
 }
 
-/* Léger voile pour lire le texte (débutant-friendly) */
-.hero::before {
-  content: "";
-  position: absolute; inset: 0;
-  background: rgba(0,0,0,0.28);
+.hero::before{
+  content:""; position:absolute; inset:0;
+  background:rgba(0,0,0,.28);
+}
+.hero > *{ position:absolute; z-index:1 }
+
+/* Mini logo FR */
+.mini-logo{
+  top:18px; left:50%; transform:translateX(-50%);
+  width:54px; height:54px; background:#fff; color:#000; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Playfair Display', serif; font-weight:600; font-size:18px;
 }
 
-/* Tout le contenu au-dessus du voile */
-.hero > * { position: absolute; z-index: 1; }
-
-/* ========= Mini logo FR en haut ========= */
-.mini-logo {
-  top: 18px; left: 50%;
-  transform: translateX(-50%);
-  width: 54px; height: 54px;
-  background: #fff;                 /* rond blanc */
-  color: #000;                      /* texte noir */
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 18px; font-weight: 600;
-  letter-spacing: 1px;
+/* Gros titre */
+.brand{
+  margin:0;
+  font-family:'Playfair Display', serif;
+  font-weight:400; letter-spacing:.12em;
+  font-size:clamp(36px, 9vw, 120px);
+  text-shadow:0 2px 8px rgba(0,0,0,.35);
 }
 
-/* ========= Gros titre au milieu ========= */
-.brand {
-  margin: 0;
-  font-family: 'Playfair Display', serif;            /* titre élégant */
-  font-weight: 400;
-  letter-spacing: .12em;
-  font-size: clamp(36px, 9vw, 120px);               /* grand mais simple */
-  line-height: 1;
-  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+/* Lignes du bas */
+.bottom-toprow{
+  bottom:96px; left:50%; transform:translateX(-50%);
+  width:min(90%,1100px);
+  display:flex; justify-content:space-between; gap:16px;
+  font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  font-size:clamp(10px,1.8vw,18px); text-shadow:0 1px 6px rgba(0,0,0,.4);
 }
-
-/* ========= Lignes du bas ========= */
-
-/* première ligne en bas (gauche / droite) */
-.bottom-toprow {
-  position: absolute;
-  bottom: 96px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(90%, 1100px);                           /* largeur max */
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  font-weight: 600;
-  letter-spacing: .18em;
-  font-size: clamp(10px, 1.8vw, 18px);
-  text-transform: uppercase;
-  text-shadow: 0 1px 6px rgba(0,0,0,.4);
+.bottom-lastrow{
+  bottom:48px; left:50%; transform:translateX(-50%);
+  width:min(90%,900px);
+  display:flex; justify-content:center; align-items:center; gap:18px;
+  font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  font-size:clamp(10px,1.8vw,18px); text-shadow:0 1px 6px rgba(0,0,0,.4);
 }
+.bottom-lastrow .dash{ opacity:.9 }
 
-/* deuxième ligne tout en bas : ENCHANTING FRAMES — ENDLESS MEMORIES */
-.bottom-lastrow {
-  position: absolute;
-  bottom: 48px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(90%, 900px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  font-weight: 600;
-  letter-spacing: .18em;
-  font-size: clamp(10px, 1.8vw, 18px);
-  text-transform: uppercase;
-  text-shadow: 0 1px 6px rgba(0,0,0,.4);
-}
-.bottom-lastrow .dash { opacity: .9; }               /* le tiret du milieu */
