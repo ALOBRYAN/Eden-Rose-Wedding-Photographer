@@ -5,19 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Eden Rose — Wedding Photographer</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- polices proches de la maquette -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ====== BLOC HAUT : 3 panneaux + textes ====== -->
-  <header class="section hero">
-    <div class="strip strip-top">
-      <div class="panel p-left"   aria-hidden="true"></div>
-      <div class="panel p-center" aria-hidden="true"></div>
-      <div class="panel p-right"  aria-hidden="true"></div>
-      <div class="overlay" aria-hidden="true"></div>
+  <!-- ====== STRIP HAUT : 3 images en taille réelle ====== -->
+  <header class="strip strip-top">
+    <div class="images">
+      <img src="Parti en haut à gauche.png" alt="haut gauche" />
+      <img src="en haut millieu.png" alt="haut milieu" />
+      <img src="en haut à droite.png" alt="haut droite" />
+    </div>
 
-      <!-- Textes superposés -->
+    <!-- calque texte par-dessus, sans zoom -->
+    <div class="overlay">
       <div class="txt t-left-top">ROMANTIC &<br> MOMENTS</div>
       <div class="txt t-right-top">WEDDING<br> PHOTOGRAPHY</div>
 
@@ -27,28 +29,25 @@
       <div class="divider" aria-hidden="true"></div>
       <div class="txt t-right-bottom">ENDLESS MEMORIES</div>
 
-      <!-- Monogramme FR -->
       <div class="monogram" aria-hidden="true">
         <span class="f">F</span><span class="r">R</span>
       </div>
     </div>
   </header>
 
-  <!-- ====== BLOC MILIEU : 1 panneau plein ====== -->
-  <section class="section middle">
-    <div class="single-frame" aria-label="Bloc milieu"></div>
+  <!-- ====== BLOC MILIEU : 1 image taille réelle ====== -->
+  <section class="mid">
+    <img src="millieu.png" alt="milieu" />
   </section>
 
-  <!-- ====== BLOC BAS : 3 panneaux ====== -->
-  <section class="section bottom">
-    <div class="strip strip-bottom">
-      <div class="panel b-left"   aria-hidden="true"></div>
-      <div class="panel b-center" aria-hidden="true"></div>
-      <div class="panel b-right"  aria-hidden="true"></div>
-      <div class="overlay" aria-hidden="true"></div>
+  <!-- ====== STRIP BAS : 3 images en taille réelle ====== -->
+  <section class="strip strip-bottom">
+    <div class="images">
+      <img src="en bas à gauche.png" alt="bas gauche" />
+      <img src="en bas millieu.png" alt="bas milieu" />
+      <img src="en bas à droite.png" alt="bas droite" />
     </div>
   </section>
 
 </body>
 </html>
-
