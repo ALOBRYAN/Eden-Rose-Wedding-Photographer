@@ -1,136 +1,91 @@
-body {
+/* ====== Réglages généraux ====== */
+:root{
+  /* Le fichier unique de ta planche */
+  --board: url('Frame 1.png');
+
+  /* Hauteur des “fenêtres” (sections) en viewport height. 
+     Tu peux ajuster pour mieux cadrer. */
+  --h-hero:        100vh;
+  --h-about:       90vh;
+  --h-identity:    100vh;
+  --h-typography:  90vh;
+  --h-apps:        100vh;
+  --h-footer:      80vh;
+
+  /* Positions verticales (%) à l’intérieur de la grande image.
+     Ajuste ces pourcentages pour “recadrer” chaque zone. */
+  --y-hero:        0%;    /* tout en haut */
+  --y-about:       18%;   /* descends un peu */
+  --y-identity:    38%;
+  --y-typography:  58%;
+  --y-apps:        78%;
+  --y-footer:      92%;   /* proche du bas */
+
+  /* Option : largeur d’affichage de la planche (max en px) */
+  --maxw: 1200px;
+  /* Fond de page (autour de la planche) */
+  --page-bg: #ffffff;
+}
+
+/* Page */
+*{ box-sizing: border-box; }
+html, body{
   margin: 0;
-  background: #faf9f7;
-  color: #333;
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.7;
+  padding: 0;
+  background: var(--page-bg);
+  color: #111;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-h1, h2 {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 2px;
-  margin-bottom: 0.4em;
-}
-
-section {
-  padding: 80px 20px;
-  max-width: 1000px;
+/* Container qui centre la “planche” */
+.board{
   margin: 0 auto;
-  text-align: center;
+  max-width: var(--maxw);
+}
+
+/* ====== Slices (fenêtres sur la même grande image) ======
+   Principe :
+   - On utilise la MÊME image en background
+   - background-size: 100% auto => on cale la largeur à 100% (pas de déformation)
+   - background-position-y varie par slice pour changer la zone visible
+*/
+.slice{
+  background-image: var(--board);
+  background-repeat: no-repeat;
+  background-size: 100% auto; /* la largeur prend 100% du conteneur */
+  background-position-x: center;
+  /* Astuce pour éviter tout espace à droite/gauche si la planche est plus petite :
+     On limite la largeur et on centre le container .board (déjà fait) */
+}
+
+/* Hauteurs de chaque section (fenêtre) */
+.slice-hero       { height: var(--h-hero); }
+.slice-about      { height: var(--h-about); }
+.slice-identity   { height: var(--h-identity); }
+.slice-typography { height: var(--h-typography); }
+.slice-applications { height: var(--h-apps); }
+.slice-footer     { height: var(--h-footer); }
+
+/* Positions verticales sur l’unique image */
+.slice-hero       { background-position-y: var(--y-hero); }
+.slice-about      { background-position-y: var(--y-about); }
+.slice-identity   { background-position-y: var(--y-identity); }
+.slice-typography { background-position-y: var(--y-typography); }
+.slice-applications { background-position-y: var(--y-apps); }
+.slice-footer     { background-position-y: var(--y-footer); }
+
+/* ====== Responsive fin ====== */
+/* Sur petits écrans, on peut donner un peu plus de hauteur
+   pour mieux “attraper” les zones si besoin */
+@media (max-width: 640px){
+  :root{
+    --h-hero:        100vh;
+    --h-about:        95vh;
+    --h-identity:    105vh;
+    --h-typography:  95vh;
+    --h-apps:        105vh;
+    --h-footer:       90vh;
+  }
 }
 
 
-.hero {
-  height: 100vh;
-  background: linear-gradient(to bottom, #f8f7f6, #ffffff);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hero .brand {
-  font-size: 4rem;
-  font-weight: 600;
-  letter-spacing: 4px;
-}
-
-.hero .subtitle {
-  font-size: 1.2rem;
-  letter-spacing: 3px;
-  margin-top: 0.3em;
-  text-transform: uppercase;
-  color: #666;
-}
-
-.hero .tagline {
-  font-style: italic;
-  font-size: 1.1rem;
-  color: #999;
-  margin-top: 0.8em;
-}
-
-.intro {
-  background: #ffffff;
-  color: #444;
-}
-
-.intro p {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-
-.identity {
-  background: #f3f2ef;
-}
-
-.palette {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.color {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
-
-.c1 { background: #ffffff; border: 1px solid #ccc; }
-.c2 { background: #e6ded5; }
-.c3 { background: #c5b8ae; }
-.c4 { background: #333; }
-
-
-.typography .font-sample {
-  margin: 20px 0;
-  font-size: 1.5rem;
-}
-
-.font-sample.serif {
-  font-family: 'Playfair Display', serif;
-}
-
-.font-sample.sans {
-  font-family: 'Montserrat', sans-serif;
-}
-
-.mockups {
-  background: #ffffff;
-}
-
-.mockup-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.mock {
-  width: 280px;
-  height: 180px;
-  background: #ddd;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-
-footer {
-  background: #111;
-  color: #fff;
-  text-align: center;
-  padding: 60px 20px;
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: #fff;
-  text-decoration: none;
-}
-footer a:hover {
-  text-decoration: underline;
-}
