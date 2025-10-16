@@ -1,83 +1,17 @@
-
-:root{
-
-  --board: url('Frame 1.png');
-
- 
-  --h-hero:        100vh;
-  --h-about:       90vh;
-  --h-identity:    100vh;
-  --h-typography:  90vh;
-  --h-apps:        100vh;
-  --h-footer:      80vh;
-
- 
-  --y-hero:        0%;   
-  --y-about:       18%;  
-  --y-identity:    38%;
-  --y-typography:  58%;
-  --y-apps:        78%;
-  --y-footer:      92%;   
-
-
-  --maxw: 1200px;
-
-  --page-bg: #ffffff;
+section {
+  padding: 80px;
+  border-bottom: 1px solid #eee;
 }
 
-
-*{ box-sizing: border-box; }
-html, body{
-  margin: 0;
-  padding: 0;
-  background: var(--page-bg);
-  color: #111;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+.hero {
+  background-color: #f5f5f5;
+  text-align: center;
 }
 
-
-.board{
-  margin: 0 auto;
-  max-width: var(--maxw);
+.image-block {
+  width: 30%;
+  height: 200px;
+  background-color: #ddd;
+  display: inline-block;
+  margin: 10px;
 }
-
-
-
-.slice{
-  background-image: var(--board);
-  background-repeat: no-repeat;
-  background-size: 100% auto; 
-  background-position-x: center;
-
-}
-
-
-.slice-hero       { height: var(--h-hero); }
-.slice-about      { height: var(--h-about); }
-.slice-identity   { height: var(--h-identity); }
-.slice-typography { height: var(--h-typography); }
-.slice-applications { height: var(--h-apps); }
-.slice-footer     { height: var(--h-footer); }
-
-
-.slice-hero       { background-position-y: var(--y-hero); }
-.slice-about      { background-position-y: var(--y-about); }
-.slice-identity   { background-position-y: var(--y-identity); }
-.slice-typography { background-position-y: var(--y-typography); }
-.slice-applications { background-position-y: var(--y-apps); }
-.slice-footer     { background-position-y: var(--y-footer); }
-
-
-@media (max-width: 640px){
-  :root{
-    --h-hero:        100vh;
-    --h-about:        95vh;
-    --h-identity:    105vh;
-    --h-typography:  95vh;
-    --h-apps:        105vh;
-    --h-footer:       90vh;
-  }
-}
-
-
-
