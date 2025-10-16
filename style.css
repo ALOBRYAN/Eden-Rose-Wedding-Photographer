@@ -1,10 +1,9 @@
-/* ====== Réglages généraux ====== */
+
 :root{
-  /* Le fichier unique de ta planche */
+
   --board: url('Frame 1.png');
 
-  /* Hauteur des “fenêtres” (sections) en viewport height. 
-     Tu peux ajuster pour mieux cadrer. */
+ 
   --h-hero:        100vh;
   --h-about:       90vh;
   --h-identity:    100vh;
@@ -12,22 +11,21 @@
   --h-apps:        100vh;
   --h-footer:      80vh;
 
-  /* Positions verticales (%) à l’intérieur de la grande image.
-     Ajuste ces pourcentages pour “recadrer” chaque zone. */
-  --y-hero:        0%;    /* tout en haut */
-  --y-about:       18%;   /* descends un peu */
+ 
+  --y-hero:        0%;   
+  --y-about:       18%;  
   --y-identity:    38%;
   --y-typography:  58%;
   --y-apps:        78%;
-  --y-footer:      92%;   /* proche du bas */
+  --y-footer:      92%;   
 
-  /* Option : largeur d’affichage de la planche (max en px) */
+
   --maxw: 1200px;
-  /* Fond de page (autour de la planche) */
+
   --page-bg: #ffffff;
 }
 
-/* Page */
+
 *{ box-sizing: border-box; }
 html, body{
   margin: 0;
@@ -37,28 +35,23 @@ html, body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* Container qui centre la “planche” */
+
 .board{
   margin: 0 auto;
   max-width: var(--maxw);
 }
 
-/* ====== Slices (fenêtres sur la même grande image) ======
-   Principe :
-   - On utilise la MÊME image en background
-   - background-size: 100% auto => on cale la largeur à 100% (pas de déformation)
-   - background-position-y varie par slice pour changer la zone visible
-*/
+
+
 .slice{
   background-image: var(--board);
   background-repeat: no-repeat;
-  background-size: 100% auto; /* la largeur prend 100% du conteneur */
+  background-size: 100% auto; 
   background-position-x: center;
-  /* Astuce pour éviter tout espace à droite/gauche si la planche est plus petite :
-     On limite la largeur et on centre le container .board (déjà fait) */
+
 }
 
-/* Hauteurs de chaque section (fenêtre) */
+
 .slice-hero       { height: var(--h-hero); }
 .slice-about      { height: var(--h-about); }
 .slice-identity   { height: var(--h-identity); }
@@ -66,7 +59,7 @@ html, body{
 .slice-applications { height: var(--h-apps); }
 .slice-footer     { height: var(--h-footer); }
 
-/* Positions verticales sur l’unique image */
+
 .slice-hero       { background-position-y: var(--y-hero); }
 .slice-about      { background-position-y: var(--y-about); }
 .slice-identity   { background-position-y: var(--y-identity); }
@@ -74,9 +67,7 @@ html, body{
 .slice-applications { background-position-y: var(--y-apps); }
 .slice-footer     { background-position-y: var(--y-footer); }
 
-/* ====== Responsive fin ====== */
-/* Sur petits écrans, on peut donner un peu plus de hauteur
-   pour mieux “attraper” les zones si besoin */
+
 @media (max-width: 640px){
   :root{
     --h-hero:        100vh;
@@ -87,5 +78,6 @@ html, body{
     --h-footer:       90vh;
   }
 }
+
 
 
